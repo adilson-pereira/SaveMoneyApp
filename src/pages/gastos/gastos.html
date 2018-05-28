@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Gastos
+    </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addData()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Lista de saldo</h2>
+  <ion-list>
+    <ion-item-sliding *ngFor="let gastos of gastos; let i=index">
+      <ion-item nopadding>
+        <p>
+          <span>{{gastos.date}}</span><br>
+          Tipo: {{gastos.type}}<br>
+          {{gastos.description}}
+        </p>
+        <h3 item-end>
+          Valor: ${{gastos.amount}}
+        </h3>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button color="primary" (click)="editData(gastos.rowid)">
+          <ion-icon name="paper"></ion-icon>
+        </button>
+        <button ion-button color="danger" (click)="deleteData(gastos.rowid)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>Saldo Total: ${{saldo}}</ion-title>
+  </ion-toolbar>
+</ion-footer>

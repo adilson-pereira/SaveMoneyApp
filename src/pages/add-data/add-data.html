@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Meus Gastos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <h2>Registrar</h2>
+  <form (ngSubmit)="saveData()">
+    <ion-item>
+      <ion-label>Data</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="data.date" name="date" required=""></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tipo</ion-label>
+      <ion-select [(ngModel)]="data.type" name="type" required="">
+        <ion-option value="Income">Entrada</ion-option>
+        <ion-option value="Expense">Despesa</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-input type="text" placeholder="Descrição" [(ngModel)]="data.description" name="description" required="" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Valor</ion-label>
+      <ion-input type="number" placeholder="Valor" [(ngModel)]="data.amount" name="amount" required="" ></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Inserir</button>
+  </form>
+</ion-content>
